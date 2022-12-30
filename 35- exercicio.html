@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: black;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            background-color: chocolate;
+            padding: 20px;
+            border: double 2px burlywood;
+            border-radius: 20px 10px 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: medium;
+        }
+    </style>
+    <title>Exercicio de Condicional</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="valorCompra">Digite o valor da sua compra: </label>
+        <input type="number" name="valor" id="valorCompra">
+        <label for="cupomDesconto">Possui Cupom?</label>
+        <select name="cupom" id="cupomDesconto">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+        </select>
+        <br>
+        <input type="button" value="Calcular" id="totalCompra" onclick="calcular()">
+
+        <p id="resposta"></p>
+    </div>
+    <script>
+
+        function calcular() {
+
+            let mercadoria = Number(valorCompra.value)
+            let possuiCupom = cupomDesconto.value
+            let total = mercadoria - 100
+
+            if (mercadoria > 1000 && possuiCupom == "sim") {
+                resposta.textContent = `Parabéns, você possui cupom! O total de sua compra é de R$ ${total}.`
+            }
+            else {
+                resposta.textContent = `Infelizmente você não possui desconto. O valor de sua compra é de R$ ${mercadoria}.`
+            }
+        }
+    </script>
+</body>
+</html>
